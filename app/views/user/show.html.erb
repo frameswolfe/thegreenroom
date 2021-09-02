@@ -1,0 +1,4 @@
+<% if @user.is_band? %>
+<%=  render partial: 'artist', locals: {user: @user}%>
+<%# render venue %>
+<% end %>

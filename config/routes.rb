@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'user/show', to: 'user#show'
   devise_for :users
   root to: 'pages#home'
   resources :venues, only: [:index, :show] do
@@ -6,7 +7,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new]
   end
 
-  resources :users, only: [:index] do
+  resources :users, only: [:show] do
     resources :chatrooms, only: [:index]
   end
 
