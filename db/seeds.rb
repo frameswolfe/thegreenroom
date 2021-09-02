@@ -16,7 +16,11 @@ puts "Creating 4 venue owners..."
 user1 = User.create!(
   {
     email: Faker::Internet.email,
+<<<<<<< HEAD
     password: '123123',
+=======
+    password: 123456,
+>>>>>>> master
     is_band: false
   }
 )
@@ -24,7 +28,11 @@ user1 = User.create!(
 user2 = User.create!(
   {
     email: Faker::Internet.email,
+<<<<<<< HEAD
     password: '123123',
+=======
+    password: 123456,
+>>>>>>> master
     is_band: false
   }
 )
@@ -32,7 +40,11 @@ user2 = User.create!(
 user3 = User.create!(
   {
     email: Faker::Internet.email,
+<<<<<<< HEAD
     password: '123123',
+=======
+    password: 123456,
+>>>>>>> master
     is_band: false
   }
 )
@@ -40,7 +52,11 @@ user3 = User.create!(
 user4 = User.create!(
   {
     email: Faker::Internet.email,
+<<<<<<< HEAD
     password: '123123',
+=======
+    password: 123456,
+>>>>>>> master
     is_band: false
   }
 )
@@ -568,3 +584,15 @@ Venue.create!(
 )
 
 puts "Finished seeding #{Venue.count} venues!"
+
+puts "Creating the test venue owner..."
+
+User.create!(
+  {
+    email: 'demo@venue.com',
+    password: 123123,
+    is_band: false
+  }
+)
+
+puts "Seed complete 🤘"
