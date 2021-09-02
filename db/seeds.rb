@@ -8,7 +8,11 @@
 
 User.destroy_all
 Venue.destroy_all
+Tour.destroy_all
+Booking.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!(User.table_name)
+ActiveRecord::Base.connection.reset_pk_sequence!(Tour.table_name)
+ActiveRecord::Base.connection.reset_pk_sequence!(Booking.table_name)
 ActiveRecord::Base.connection.reset_pk_sequence!(Venue.table_name)
 
 puts "Creating 4 venue owners..."
@@ -583,6 +587,17 @@ Venue.create!(
   }
 )
 
+10.times do
+  Tour.create!(
+    {
+      user: [user1, user2, user3, user4].sample,
+      name: Faker::Hipster.sentence(word_count: 3),
+      start_date: Faker::Date.forward(days: 2),
+      end_date: Faker::Date.forward(days: 9)
+    }
+  )
+end
+
 puts "Finished seeding #{Venue.count} venues!"
 
 puts "Creating the test venue owner..."
@@ -595,4 +610,22 @@ User.create!(
   }
 )
 
+User.create!(
+  {
+    email: 'demoband@venue.com',
+    password: 123123,
+    is_band: true
+  }
+)
+
+10.times do
+  Booking.create!(
+    {
+      venue: Venue.all.sample,
+      user: User.all.sample,
+      dates: [Faker::Date.forward(days: 3), Faker::Date.forward(days: 5), Faker::Date.forward(days: 12)],
+      tour: Tour.all.sample
+    }
+  )
+end
 puts "Seed complete 🤘"
