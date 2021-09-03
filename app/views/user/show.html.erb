@@ -1,18 +1,33 @@
-<%= render 'shared/navbar' %>
-
 <div class="container bg-pic">
   <h2>Artist Profile</h2>
-    <div>
-      <%# <%= image_tag cl_image_tag @user.profile_photo.key, class: 'profile_img' %> %> To be implemented post Cloudinary
-      <h3> "Band name goes here"<%= user.band_name %> </h3>
-      <h6> "Band description goes here"<%= user.band_description %> </h6>
-      <%# <div class="card">
-        <%# <h6>"Band reviews go here"</h6>
-        <li>
-          <% user.reviews.each do |review| %>
-            <%# <%= review.content%> %>
-          <%# <%= end %> %>
-        <%# </li> %> %> %>
-      <%# </div> %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+    <%# <%# <%= image_tag cl_image_tag @user.profile_photo.key, class: 'profile_img'To be implemented post Cloudinary %>
+    <h3> <%= @user.band_name %> </h3>
+    <h6> <%= @user.band_description %> </h6>
+  </div>
+  <div class=row>
+    <div class="card col-6">
+      <h4>Reviews</h4>
+        <%# BAND REVIEWS IMPLEMENTED NEXT WEEK %>
+        <%# <div class="card">
+          <%# <h6>Reviews</h6>
+          <li>
+            <% user.reviews.each do |review| %>
+              <%# <%= review.content%>
+            <%# <%= end %>
+          <%# </li> %>
+        <%# </div> %>
     </div>
+    <div class="card col-6">
+      <h4>Current Tours</h4>
+      <li>
+      <div class="card">
+        <% @user.tours.each do |tour| %>
+          <%= tour.name %>
+          <%= "Running from #{tour.start_date} to #{tour.end_date}"%>
+        <% end %>
+      </div>
+      </li>
+    </div>
+  </div>
 </div>
