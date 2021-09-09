@@ -14,8 +14,6 @@
 }
 
 .venue_gallery {
-  background-color: $gray;
-  opacity: .85;
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 100%;
@@ -98,7 +96,6 @@
 }
 
 .background-image-venues-show {
-  background: url(asset_path("tours/tours-show-bw"));
   // background: url(asset_path("tours/tob-heaven"));
   // background: url(asset_path("tours/bass-confetti"));
   // background: url(asset_path("tours/bass"));
@@ -106,7 +103,22 @@
   // background: url(asset_path("tours/confetti"));
   background-size: cover;
   height: 100vh;
+  position: relative;
 }
+
+
+.background-image-venues-show::after {
+  content: "";
+  background: url(asset_path("tours/tours-show-bw"));
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
 
 .prev-month {
   background-color: yellow;
